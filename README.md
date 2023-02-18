@@ -14,18 +14,18 @@ about future, multi-user applications.
 
 ## Notes
 
-This was only tested on Linux so far.
+- This was only tested on Linux so far.
 
-I didn't want the Egui app to block when sending requests and waiting for the
+- I didn't want the Egui app to block when sending requests and waiting for the
 API but I saw no reason to use `tokio` as in this case you are limited anyway
 to the speed of button clicks from the user. I just used plain `std::thread` to
 create threads that handle the requests and communicate back to the main thread
 through channels.
 
-Since I'm using threads I don't know if the app works on wasm. It might just
+- Since I'm using threads I don't know if the app works on wasm. It might just
 work using `wasm_thread` and `reqwasm`.
 
-Using Sqlite with rust (`rusqlite`) and the best approach of using it with
+- Using Sqlite with rust (`rusqlite`) and the best approach of using it with
 either multi-threading or asynchronous programming seems to be a matter of
 debate among people, with no clear consensus or documentation on the best
 approach. I decided to just use a pool manager with `r2d2` but in this test I'm
@@ -33,7 +33,7 @@ still not properly using `tokio::spawn_blocking`. As a result, database calls
 within the API's async handlers are still blocking, which is not a big deal for
 this app.
 
-I didn't want to use a complicated ORM setup for the database so I have more
+- I didn't want to use a complicated ORM setup for the database so I have more
 control over the queries and experiment later on. Instead, a set of simple
 helper traits were made to still organize the code as if I was using an ORM,
 and I split that up to the `dbent` library.
