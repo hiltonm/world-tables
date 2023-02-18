@@ -1,0 +1,25 @@
+[package]
+name = "world-tables-server"
+version = "0.1.0"
+authors = ["Hilton Medeiros"]
+edition = "2021"
+description = "Server for world-tables"
+repository = "https://github.com/hiltonm/world-tables"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+log = "0.4"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+anyhow = "1"
+directories = "4.0"
+lazy_static = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+axum = "0.6"
+tower-http = { version = "0.3", features = ["compression-full"] }
+tokio = { version = "1.25", features = ["full"] }
+rusqlite = "0.28"
+r2d2 = "0.8"
+r2d2_sqlite = "0.21"
+world-tables-base = { version = "0.1", path = "../world-tables-base" }
+world-tables-data = { version = "0.1", path = "../world-tables-data" }

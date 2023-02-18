@@ -1,0 +1,32 @@
+[tasks.server]
+workspace = false
+command = "cargo"
+args = ["lrun", "-p", "world-tables-server"]
+dependencies = ["build"]
+
+[tasks.data]
+workspace = false
+command = "cargo"
+args = ["lrun", "-p", "world-tables-data"]
+dependencies = ["clear"]
+
+[tasks.gui]
+workspace = false
+command = "cargo"
+args = ["lrun", "-p", "world-tables-gui"]
+dependencies = ["clear"]
+
+[tasks.build]
+workspace = false
+command = "cargo"
+args = ["lbuild", "--workspace"]
+dependencies = ["clear"]
+
+[tasks.lint]
+workspace = false
+command = "cargo"
+args = ["lclippy", "--workspace"]
+dependencies = ["clear"]
+
+[tasks.clear]
+command = "clear"

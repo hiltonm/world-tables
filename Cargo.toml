@@ -1,0 +1,22 @@
+[workspace]
+members = [
+	"world-tables-base",
+	"world-tables-data",
+	"world-tables-server",
+	"world-tables-gui",
+]
+
+[profile.release]
+lto = true
+opt-level = 2 # fast and small wasm
+# debug = true # include debug symbols, useful when profiling wasm
+
+
+[profile.dev]
+# Can't leave this on by default, because it breaks the Windows build. Related: https://github.com/rust-lang/cargo/issues/4897
+# split-debuginfo = "unpacked" # faster debug builds on mac
+# opt-level = 1                # Make debug builds run faster
+
+# Optimize all dependencies even in debug builds (does not affect workspace packages):
+[profile.dev.package."*"]
+opt-level = 2

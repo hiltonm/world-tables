@@ -1,0 +1,19 @@
+[package]
+name = "world-tables-data"
+version = "0.1.0"
+authors = ["Hilton Medeiros"]
+edition = "2021"
+description = "Fixtures loader for world-tables"
+repository = "https://github.com/hiltonm/world-tables"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+log = "0.4"
+env_logger = "0.10"
+anyhow = "1"
+lazy_static = "1"
+csv = "1.2"
+rusqlite = "0.28"
+rusqlite_migration = "1"
+clap = { version = "4", features = ["derive"] }
+world-tables-base = { version = "0.1", path = "../world-tables-base" }

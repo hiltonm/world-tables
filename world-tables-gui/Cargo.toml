@@ -1,0 +1,34 @@
+[package]
+name = "world-tables-gui"
+version = "0.1.0"
+authors = ["Hilton Medeiros"]
+edition = "2021"
+description = "GUI for world-tables"
+repository = "https://github.com/hiltonm/world-tables"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+log = "0.4"
+anyhow = "1"
+lazy_static = "1"
+enum-map = "2"
+clap = { version = "4", features = ["derive"] }
+egui = "0.21"
+egui_extras = "0.21"
+eframe = { version = "0.21", default-features = false, features = [ "default_fonts", "glow" ] }
+epaint = { version = "0.21" }
+catppuccin-egui = "2"
+serde = { version = "1" }
+reqwest = { version = "0.11", default-features = false, features = ["blocking", "gzip", "json"] }
+world-tables-base = { version = "0.1", path = "../world-tables-base" }
+
+# native:
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+tracing-subscriber = "0.3"
+
+# web:
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+console_error_panic_hook = "0.1.7"
+tracing-wasm = "0.2"
+wasm-bindgen-futures = "0.4"
+

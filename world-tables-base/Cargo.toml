@@ -1,0 +1,16 @@
+[package]
+name = "world-tables-base"
+version = "0.1.0"
+authors = ["Hilton Medeiros"]
+edition = "2021"
+description = "Base types for world tables"
+repository = "https://github.com/hiltonm/world-tables"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+log = "0.4"
+anyhow = "1"
+url = "2"
+rusqlite = "0.28"
+dbent = { version = "0.1", features = ["rusqlite"] }
+serde = { version = "1", features = ["derive"] }
