@@ -40,7 +40,19 @@ and I split that up to the `dbent` library.
 
 ## Usage
 
-This project uses cargo-make for building and running. To install cargo-make,
+If you just want to run the app, you need to install the 3 executables with
+cargo, running the following command:
+
+```sh
+cargo install world-tables-data world-tables-server world-tables-gui
+```
+
+Then run the server:
+```sh
+world-tables-server
+```
+
+For building with this repository you need cargo-make. To install cargo-make,
 run the following command:
 
 ```sh
@@ -53,10 +65,10 @@ Once installed, you can build the server and all other components by running:
 cargo make server
 ```
 
-Please note that this will not only build the components, but it should also
-run the server with the GUI application if successful. The first time you run
-the server, the SQLite database will be created in a user directory, which may
-take some time to finish.
+Please note that running the server will also run the GUI application if
+successful. The first time you run the server, the SQLite database will be
+created in a user directory using the data app, which may take some time to
+finish.
 
 ## Resources
 
